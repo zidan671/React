@@ -1,0 +1,21 @@
+.posts__block {
+  padding: 10px;
+}
+
+.posts {
+  padding: 10px;
+}
+
+textarea{
+
+}
+
+button{
+  min-width: 100px;
+  min-height: 30px;
+  padding: 0 30px;
+  cursor: pointer;
+  border-radius: 7px;
+  background: #4676d7;
+
+}

@@ -17,7 +17,7 @@ function App(props) {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar state2={props.state.navBarPage}/>
+        <Navbar navBarPage={props.state.navBarPage}/>
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/profile" element={<Profile 

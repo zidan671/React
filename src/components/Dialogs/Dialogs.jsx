@@ -6,7 +6,6 @@ import { SendMessageActionCreator, UpdateNewMessageCreator } from '../../Redux/d
 
 const Dialogs = (props) => {
 
-
   let messagesElement = props.dialogsPage.messagesData.map((element) => (
     <Message text={element.text} />
   ))
@@ -16,15 +15,12 @@ const Dialogs = (props) => {
   let newMessageBody= props.dialogsPage.newMessageBody
 
   let onSendMessageClick = () => {
-    props.dispatch(SendMessageActionCreator())   
+    props.sendMessageClick() 
   }
   let onChangeMessage = (event) => {
     let messageBody = event.target.value
-    props.dispatch(UpdateNewMessageCreator(messageBody)) ;
+    props.updateMessage(messageBody) ;
   }
-
-
-
 
   return (
     <div className={classes.dialogs}>

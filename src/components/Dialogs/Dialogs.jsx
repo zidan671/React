@@ -1,16 +1,16 @@
 import classes from './Dialogs.module.css'
 import Message from './Message/Message'
 import DialogItem from './DialogItem/DialogItem'
-import { SendMessageActionCreator, UpdateNewMessageCreator } from '../../Redux/dialogsReducer'
+
 
 
 const Dialogs = (props) => {
 
   let messagesElement = props.dialogsPage.messagesData.map((element) => (
-    <Message text={element.text} />
+    <Message text={element.text} key={element.id}/>
   ))
   let dialogsElement = props.dialogsPage.dialogsData.map((element) => (
-    <DialogItem name={element.name} id={element.id} />
+    <DialogItem name={element.name} key={element.id} id={element.id} />
   ))
   let newMessageBody= props.dialogsPage.newMessageBody
 

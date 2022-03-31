@@ -1,0 +1,32 @@
+
+.friend_info_status{
+  position: relative; 
+  top: -140px; 
+  left: 120px;
+  margin-bottom: 0;
+  
+}
+
+.friend_info_location{
+  position: relative; 
+  top: -140px; 
+  left: 620px;
+  margin-bottom: 0;
+}
+
+.avatar_img {
+  width: 90px;
+  height: 120px;
+  margin-left: 10px;
+  margin-top: 5px;
+
+  
+}
+
+button {
+
+  display: block;
+  margin-left: 10px
+}
+
+

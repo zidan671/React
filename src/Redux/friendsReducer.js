@@ -16,8 +16,8 @@ const friendsReducer = (state = initialState, action) => {
   
   switch (action.type) {
     case FOLLOW:
-      return {...state, 
-        // friends: [...state.friends]
+      return {
+        ...state, 
         friends: state.friends.map ((friend)=> {
           if (friend.id === action.friendId) {
             return {...friend, follow: true}
@@ -28,8 +28,9 @@ const friendsReducer = (state = initialState, action) => {
       }
 
     case UNFOLLOW:
-      return {...state, 
-        // friends: [...state.friends]
+      return {
+        ...state, 
+  
         friends: state.friends.map ((friend)=> {
           if (friend.id === action.friendId) {
             return {...friend, follow: false}

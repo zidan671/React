@@ -1,24 +1,27 @@
+
+import axios from 'axios'
 import classes from './Friends.module.css'
+import userPhoto from '../../assets/images/user.png'
 
 const Friends = (props) => {
-
+  let getUsers = ()=> {
   if (props.friends.length ===0) {
     
-    props.setFriends([
-      { id: 1, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQg5biSqcBzmz58p1iv7ILmGc9MeBifR5csw&usqp=CAU', follow: false, name: 'Andrey', status:'I am a boss', location:{city:'Minsk', country:'Belarus'} },
-      { id: 2, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQg5biSqcBzmz58p1iv7ILmGc9MeBifR5csw&usqp=CAU', follow: false, name: 'Petr', status:'I am a boss too', location:{city:'Moskow', country:'Russia'} },
-      { id: 3, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQg5biSqcBzmz58p1iv7ILmGc9MeBifR5csw&usqp=CAU', follow: true, name: 'Vera', status:'I am a boss too', location:{city:'Paris', country:'France'} },
-      { id: 4, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQg5biSqcBzmz58p1iv7ILmGc9MeBifR5csw&usqp=CAU', follow: true, name: 'Aleksey', status:'I am a free', location:{city:'London', country:'England'} },
-      { id: 5, photoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQg5biSqcBzmz58p1iv7ILmGc9MeBifR5csw&usqp=CAU', follow: true, name: 'Sergey', status:'I am a free', location:{city:'Novosibirsk', country:'Russia'} },
-    ])
-  }
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").
+          then(response =>{
+            props.setFriends(response.data.items)
+          })
+  }}
   
   return (
     <div>
+      <button onClick={getUsers}>Получить пользователей</button>
       {props.friends.map((friend) => (
         <div key={friend.id}>
           <div>
-            <img className={classes.avatar_img} src={friend.photoUrl} alt="" />
+            <img className={classes.avatar_img} src={friend.photos.small != null ? friend.photos.small : userPhoto} 
+            alt="" />
+            
             <div>{friend.follow 
             ? <button onClick = {()=>{props.unfollow(friend.id)}}>UnFollow</button> 
             : <button onClick = {()=>{props.follow(friend.id)}}>Follow</button>}
@@ -31,9 +34,9 @@ const Friends = (props) => {
             </div>
 
             <div className={classes.friend_info_location}>
-              <div>{friend.location.city}</div>
+              <div>{"friend.location.city"}</div>
               <div style={{ position: 'absolute', bottom: '-70px' }}>
-                {friend.location.country}
+                {"friend.location.country"}
               </div>
               
             </div>

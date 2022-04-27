@@ -12,7 +12,7 @@ import FriendsContainer from './components/Friends/FriendsContainer';
 
 
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -20,6 +20,7 @@ function App(props) {
         <NavbarContainer />
         <div className="app-wrapper-content">
           <Routes>
+            <Route path="/" element={<Profile/>} />  
             <Route path="/profile" element={<Profile/>} />
             <Route path="/dialogs/*" element={<DialogsContainer/>} />
             <Route path="/news" element={<News />} /> 

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import { followAC, setCurrentPageAC, setFriendsAC, setTotalUsersCountAC, toogleIsFetchingAC, unfollowAC } from "../../Redux/friendsReducer";
+import { follow, setCurrentPage, setFriends, setTotalUsersCount, toogleIsFetching, unfollow } from "../../Redux/friendsReducer";
 import axios from 'axios'
 import React from 'react'
 import Friends from './Friends';
@@ -59,28 +59,31 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (friendId) => {
-      dispatch(followAC(friendId))
-    },
-    unfollow: (friendId) => {
-      dispatch(unfollowAC(friendId))
-    },
-    setFriends: (friends) => {
-      dispatch(setFriendsAC(friends))
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber))
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount))
-    },
-    toogleIsFetching: (isFetching) => {
-      dispatch(toogleIsFetchingAC(isFetching))
-    },
-  }
-}
+// let mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (friendId) => {
+//       dispatch(followAC(friendId))
+//     },
+//     unfollow: (friendId) => {
+//       dispatch(unfollowAC(friendId))
+//     },
+//     setFriends: (friends) => {
+//       dispatch(setFriendsAC(friends))
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber))
+//     },
+//     setTotalUsersCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount))
+//     },
+//     toogleIsFetching: (isFetching) => {
+//       dispatch(toogleIsFetchingAC(isFetching))
+//     },
+//   }
+// }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(FriendsContainer)
+
+export default connect(mapStateToProps, {
+  follow,unfollow,setFriends,setCurrentPage,
+  setTotalUsersCount,toogleIsFetching})(FriendsContainer)

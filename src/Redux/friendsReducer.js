@@ -6,12 +6,12 @@ const SET_TOTAL_USERS_COUNT= 'SET_TOTAL_USERS_COUNT'
 const TOOGLE_IS_FETCHING= 'TOOGLE_IS_FETCHING'
 
 
-export const followAC = (friendId) => ({ type: FOLLOW, friendId }) 
-export const unfollowAC = (friendId) => ({type: UNFOLLOW, friendId}) 
-export const setFriendsAC = (friends) => ({type: SET_FRIENDS , friends}) 
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE , currentPage}) 
-export const setTotalUsersCountAC = (totalCount) => ({type:SET_TOTAL_USERS_COUNT, totalCount})
-export const toogleIsFetchingAC = (isFetching) => ({type:TOOGLE_IS_FETCHING, isFetching})
+export const follow = (friendId) => ({ type: FOLLOW, friendId }) 
+export const unfollow = (friendId) => ({type: UNFOLLOW, friendId}) 
+export const setFriends = (friends) => ({type: SET_FRIENDS , friends}) 
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE , currentPage}) 
+export const setTotalUsersCount = (totalCount) => ({type:SET_TOTAL_USERS_COUNT, totalCount})
+export const toogleIsFetching = (isFetching) => ({type:TOOGLE_IS_FETCHING, isFetching})
 
 let initialState = {
   friends: [],
@@ -60,6 +60,7 @@ const friendsReducer = (state = initialState, action) => {
     
     case TOOGLE_IS_FETCHING:
       return {...state, isFetching: action.isFetching}
+
     default:
       return state
   }

@@ -10,7 +10,7 @@ import Preloader from '../common/Preloader';
 
 class FriendsContainer extends React.Component {
 
-  componentDidMount () {
+  componentDidMount () { 
   this.props.toogleIsFetching(true)
   if (this.props.friends.length === 0) {
     axios

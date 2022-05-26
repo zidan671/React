@@ -1,6 +1,8 @@
 import classes from './Friends.module.css'
 import userPhoto from '../../assets/images/user.png'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import { setFollow, setUnfollow, userAPI } from './../../api/api';
 
 const Friends = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -41,23 +43,25 @@ const Friends = (props) => {
             </NavLink>
 
             <div>
-              {friend.follow ? (
-                <button
-                  onClick={() => {
+              {friend.followed ? 
+              <button onClick={() => {
+                userAPI.setUnfollow(friend)
+                .then(data => {
+                  if (data.resultCode == 0) {
                     props.unfollow(friend.id)
-                  }}
-                >
-                  UnFollow
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    props.follow(friend.id)
-                  }}
-                >
-                  Follow
-                </button>
-              )}
+                  }
+                })  
+              }}
+                >UnFollow</button> : 
+              <button onClick={() => {
+                userAPI.setFollow(friend)
+              .then(data => {
+                if (data.resultCode == 0) {
+                  props.follow(friend.id)
+                }
+              })  
+            }}
+                >Follow</button>}
             </div>
             <div className={classes.friend_info_status}>
               <div>{friend.name}</div>

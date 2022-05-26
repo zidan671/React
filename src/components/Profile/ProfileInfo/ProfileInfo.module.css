@@ -1,3 +1,8 @@
 .description__block {
   padding: 10px;
 }
+
+.bigImg img {
+  width: 1000px;
+  height: 400px;
+}

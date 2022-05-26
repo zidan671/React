@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
   
   return (
     <div>
-    <div>
+    <div className={classes.bigImg}>
         <img src="https://www.bgoperator.ru/pr_img/1000787/20160930/39057527/marvel-img-worlds-of-adventure-dubai.jpg" />
       </div>
       <div className={classes.description__block}>

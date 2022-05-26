@@ -29,7 +29,7 @@ const friendsReducer = (state = initialState, action) => {
         ...state, 
         friends: state.friends.map ((friend)=> {
           if (friend.id === action.friendId) {
-            return {...friend, follow: true}
+            return {...friend, followed: true}
           }
           return friend
         
@@ -42,7 +42,7 @@ const friendsReducer = (state = initialState, action) => {
   
         friends: state.friends.map ((friend)=> {
           if (friend.id === action.friendId) {
-            return {...friend, follow: false}
+            return {...friend, followed: false}
           }
           return friend
         })
